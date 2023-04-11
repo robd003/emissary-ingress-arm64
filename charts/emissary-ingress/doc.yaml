@@ -1,18 +1,18 @@
 project:
-  name: Emissary Ingress
-  shortName: Emissary
+  name: Edge Stack
+  shortName: AES
   url: https://github.com/datawire/ambassador
-  description: Emissary Ingress is a self-service, comprehensive API gateway that is Kubernetes-native and built on [Envoy Proxy](https://www.envoyproxy.io/).
-  app: Emissary Ingress
+  description: The Ambassador Edge Stack is a self-service, comprehensive edge stack that is Kubernetes-native and built on [Envoy Proxy](https://www.envoyproxy.io/).
+  app: Edge Stack
 repository:
-  url: https://app.getambassador.io
-  name: emissary-ingress
+  url: https://robd003.github.io/emissary-ingress-arm64
+  name: edge-stack
 chart:
-  name: emissary-ingress
+  name: edge-stack
   values: "-- generate from values file --"
   valuesExample: "-- generate from values file --"
 prerequisites:
 - "Kubernetes v1.11+"
 release:
-  name: emissary-ingress
+  name: edge-stack
   namespace: ambassador

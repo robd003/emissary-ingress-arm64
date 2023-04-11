@@ -16,9 +16,12 @@ remote: origin
 ################################################
 
 charts:
-  - ./
+  - /charts/
 chart-dirs:
-  - ./
+  - /charts/
+chart-repos:
+  - datawire=https://s3.amazonaws.com/datawire-static-files/charts/
+  - datawiredev=https://s3.amazonaws.com/datawire-static-files/charts-dev/
 
 helm-extra-args: --timeout 600s
 

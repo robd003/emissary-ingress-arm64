@@ -1,128 +1,109 @@
 # Change Log
 
-This file documents all notable changes to Ambassador Helm Chart. The release
+This file documents all notable changes to Edge Stack Helm Chart. The release
 numbering uses [semantic versioning](http://semver.org).
 
 ## v8.5.2
-- Upgrade Emissary to v3.5.2 [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
+- Update Edge Stack chart image to version v3.5.2: [CHANGELOG](https://github.com/datawire/edge-stack/blob/master/CHANGELOG.md)
 
-## v8.5.1 - 2023-02-24
+## v8.5.1
 
-- Upgrade Emissary to v3.5.1 [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
+- Update Edge Stack chart image to version v3.5.1: [CHANGELOG](https://github.com/datawire/edge-stack/blob/master/CHANGELOG.md)
 - Fix regression where the Module resource fails validation when setting the ambassador_id after upgrading to `getambassador.io/v3alpha1`. Thanks to [pie-r](https://github.com/pie-r)
 
-## v8.5.0 - 2023-02-15
+## v8.5.0
 
-- Upgrade Emissary to v3.5.0 [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-- Adds support for configuring a startupProbe on the emissary-ingress deployments. This is useful when a larger number of resources
-  are used and the initial startup needs additional time. See for details https://github.com/emissary-ingress/emissary/pull/4649.
-- Update default module resource to use `getambassador.io/v3alpha1`. Thanks to [Luke Swithenbank](https://github.com/lswith)
+- Update Edge Stack chart image to version v3.5.0: [CHANGELOG](https://github.com/datawire/edge-stack/blob/master/CHANGELOG.md)
+- Added new securityContext fields to the Redis and Agent helm charts, allowing users to further manage privilege and access control settings which can be used for tools such as PodSecurityPolicy.
+- Adds support for configuring a startupProbe on the edge-stack deployments. This is useful when a larger number of resources are used and the initial startup needs additional time. See for details <https://github.com/emissary-ingress/emissary/pull/4649>.
 
-## v8.4.0 - 2022-01-03
+## v8.4.0
 
-- Upgrade Emissary to v3.4.0 [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-
-- The Ambassador agent that was previously embedded in Emissary Ingress has been moved to a standalone container.
+- Update Edge Stack chart image to version v3.4.0: [CHANGELOG](https://github.com/datawire/edge-stack/blob/master/CHANGELOG.md)
 
 ## v8.3.0
 
-- Upgrade Emissary to v3.3.0 [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
+- Update Edge Stack chart image to version v3.3.0: [CHANGELOG](https://github.com/datawire/edge-stack/blob/master/CHANGELOG.md)
 
-- Change: By default, the Ambassador agent will report diagnostics to the Ambassador Cloud
+## v8.2.1
 
-- Change: updated auto-scaling resource cpu and memory variable ordering to help with git-ops syncing. Also, adjusted memory and cpu settings to be more friendly so that they do not cause the HPA auto-scaling to trigger during start-up. Thanks to [Ian Martin](https://github.com/aztechian) for the contribution!
+- Update Edge Stack chart image to version v3.2.1: [CHANGELOG](https://github.com/datawire/edge-stack/blob/master/CHANGELOG.md)
 
 ## v8.2.0
 
-- Upgrade Emissary to v3.2.0 [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-
-- Bugfix: The default Role configuration of the Ambassador Agent Deployment will allow it to correctly watch Secret resources for Ambassador Cloud tokens.
+- Update Edge Stack chart image to version v3.2.0: [CHANGELOG](https://github.com/datawire/edge-stack/blob/master/CHANGELOG.md)
 
 ## v8.1.0
 
-- Upgrade Emissary to v3.1.0 [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-
-- Change: The default for the `module` value has changed to enable serving remote client requests to the <code>:8877/ambassador/v0/diag/</code> endpoint by default.
+- Update Edge Stack chart image to version v3.1.0: [CHANGELOG](https://github.com/datawire/edge-stack/blob/master/CHANGELOG.md)
 
 ## v8.0.0
 
-- Upgrade Emissary to v3.0.0 [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-
-- Change: The default for the `module` value has changed to disable
-  the `/ambassador/v0/` → `127.0.0.1:8877` synthetic Mapping by
-  default. We have long recommended to turn this off for production
-  use; it is now off by default.
-
-- Bugfix: The default values no trigger the creation of an
-  "emissary-test-ready" Pod. This Pod was meant to only be created
-  when running the chart's test suite; it was not meant to be created
-  in users' clusters.
+- Update Edge Stack chart image to version v3.0.0: [CHANGELOG](https://github.com/datawire/edge-stack/blob/master/CHANGELOG.md)
 
 ## v7.5.0
-
-- Upgrade Emissary to v2.4.0 [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
+- Update Edge Stack chart image to version v2.4.0: [CHANGELOG](https://github.com/datawire/edge-stack/blob/master/CHANGELOG.md)
 
 ## v7.4.2
-
-- Update Emissary chart image to version v2.3.2 [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
+- Update Edge Stack chart image to version v2.3.2: [CHANGELOG](https://github.com/datawire/edge-stack/blob/master/CHANGELOG.md)
 
 ## v7.4.1
 
-- Update Emissary chart image to version v2.3.1 [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
+- Update Edge Stack chart image to version v2.3.1: [CHANGELOG](https://github.com/datawire/edge-stack/blob/master/CHANGELOG.md)
 
 ## v7.4.0
 
-- Update change Emissary chart image to version v2.3.0 [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-- Add "lifecycle" option to main container. This can be used, for example, to add a lifecycle.preStop hook. Thanks to [Eric Totten](https://github.com/etotten) for the contribution!
-- Add `ambassador_id` to listener manifests rendered when using `createDefaultListeners: true` with `AMBASSADOR_ID` set in environment variables. Thanks to [Jennifer Reed](https://github.com/ServerNinja) for the contribution!
-- Feature: Added configurable IngressClass resource to be compliant with Kubernetes 1.22+ ingress specification.
+- Update Edge Stack chart image to version v2.3.0: [CHANGELOG](https://github.com/datawire/edge-stack/blob/master/CHANGELOG.md)
 
 ## v7.3.2
 
-- Upgrade Emissary to v2.2.2 [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
+- Update Edge Stack chart image to version v2.2.2: [CHANGELOG](https://github.com/datawire/edge-stack/blob/master/CHANGELOG.md)
 
 ## v7.3.1
 
-- Upgrade Emissary to v2.2.1 [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
+- Update Edge Stack chart image to version v2.2.1: [CHANGELOG](https://github.com/datawire/edge-stack/blob/master/CHANGELOG.md)
 
 ## v7.3.0
 
-- Upgrade Emissary to v2.2.0 [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
+- Update Edge Stack chart image to version v2.2.0: [CHANGELOG](https://github.com/datawire/edge-stack/blob/master/CHANGELOG.md)
 
 ## v7.2.2
 
-- Update Emissary chart image to version v2.1.2: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
+- Update Edge Stack chart image to version v2.1.2: [CHANGELOG](https://github.com/datawire/edge-stack/blob/master/CHANGELOG.md)
 
 ## v7.2.1
 
-There was no v7.2.1 release; we skipped to v7.2.2 to keep the version
-number in-sync with the edge-stack chart.
+- Update Edge Stack chart image to version v2.1.1: [CHANGELOG](https://github.com/datawire/edge-stack/blob/master/CHANGELOG.md)
 
 ## v7.2.0
 
-- Update Emissary chart image to version v2.1.0: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-- Change: It is now _always_ nescessary to manually apply `emissary-crds.yaml` before applying the chart.
-- Bugfix: When setting `adminService.snapshotPort`, it now points at the correct port on the Pod.
+- Update Edge Stack chart image to version v2.1.0: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
+
+## v7.1.11
+
+- Update Edge Stack chart image to version v2.0.5: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
 
 ## v7.1.10
 
-- Update Ambassador chart image to version v2.0.5: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
+- Switch Edge Stack CRDs to API version `v3alpha1`.
 
 ## v7.1.9
 
-- Update Ambassador chart image to version v2.0.4: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
+- Update Edge Stack chart image to version v2.0.4: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
 
 ## v7.1.8-ea
 
-- Update Ambassador chart image to version v2.0.3-ea: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
+- Update Edge Stack chart image to version v2.0.3-ea: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
+
+## v7.1.3 - v7.1.7: Internal, not released
 
 ## v7.1.2-ea
 
-- Update Ambassador chart image to version v2.0.2-ea: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
+- Update Edge Stack chart image to version v2.0.2-ea: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
 
 ## v7.1.1-ea
 
-- Update Ambassador chart image to version v2.0.1-ea: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
+- Update Edge Stack chart image to version v2.0.1-ea: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
 
 ## v7.1.0-ea
 
@@ -131,76 +112,18 @@ number in-sync with the edge-stack chart.
 
 ## v7.0.0-ea
 
-We're pleased to introduce Emissary 2.0.0 as a developer preview.
-
-Emissary Ingress chart v7.0.0-ea provides early access to Emissary 2.0 features. [Learn more in our docs](https://www.getambassador.io/docs/emissary/latest/about/changes-2.0.0/)
-
-- Update Ambassador chart image to version v2.0.0-ea: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-- Change: removed helm 2 support
-- Feature: Add an option to create default HTTP and HTTPS listeners
-
-## v6.9.5
-
-- Update Ambassador API Gateway chart image to version v1.14.4: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-- Update Ambassador Edge Stack chart image to version v1.14.4: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-
-## v6.9.4
-
-- Update Ambassador API Gateway chart image to version v1.14.3: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-- Update Ambassador Edge Stack chart image to version v1.14.3: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-
-## v6.9.3
-
-- Update Ambassador API Gateway chart image to version v1.14.2: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-- Update Ambassador Edge Stack chart image to version v1.14.2: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-
-(v6.9.2 was withdrawn)
-
-## v6.9.1
-
-- Update Ambassador API Gateway chart image to version v1.14.1: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-- Update Ambassador Edge Stack chart image to version v1.14.1: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-
-## v6.9.0
-
-- Update Ambassador Edge Stack chart image to version v1.14.0: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-
-## v6.8.0
-
-- Update Ambassador API Gateway chart image to version v1.14.0: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-
-## v6.7.14
-
-- Feature: New Values to expose `progressDeadlineSeconds` for the Ambassador and Ambassador-agent Deployments.
-
-## v6.7.13
-
-- Update Ambassador API Gateway chart image to version v1.13.10: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-- Update Ambassador Edge Stack chart image to version v1.13.10: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-
-## v6.7.12
-
-- Update Ambassador API Gateway chart image to version v1.13.9: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-- Update Ambassador Edge Stack chart image to version v1.13.9: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-
-## v6.7.11
-
-- Update Ambassador API Gateway chart image to version v1.13.8: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-- Update Ambassador Edge Stack chart image to version v1.13.8: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-- Bugfix: remove duplicate label key in ambassador-agent deployment
-
-## v6.7.10
-
-- Update Ambassador API Gateway chart image to version v1.13.7: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
-- Update Ambassador Edge Stack chart image to version v1.13.7: [CHANGELOG](https://github.com/emissary-ingress/emissary/blob/master/CHANGELOG.md)
+- Update Edge Stack chart image to version v2.0.0-ea: [CHANGELOG](https://github.com/datawire/edge-stack/blob/master/CHANGELOG.md)
+- Split [ambassador](https://github.com/emissary-ingress/emissary/tree/v1.13.9/charts/ambassador) helm chart into `edge-stack` (this repo) and `emissary-ingress`.
 
 ## v6.7.9
 
 - Update Ambassador chart image to version 1.13.6: [CHANGELOG](https://github.com/datawire/ambassador/blob/master/CHANGELOG.md)
 
+
 ## v6.7.8
 
 - Update Ambassador chart image to version 1.13.5: [CHANGELOG](https://github.com/datawire/ambassador/blob/master/CHANGELOG.md)
+
 
 ## v6.7.7
 
@@ -321,7 +244,7 @@ Emissary Ingress chart v7.0.0-ea provides early access to Emissary 2.0 features.
 ## v6.5.9
 
 - Update Ambassador to version 1.8.0: [CHANGELOG](https://github.com/datawire/ambassador/blob/master/CHANGELOG.md)
-- Bugfix: The RBAC for AES now grants permission to "patch" Events.v1.core. Previously it granted "create" but not "patch".
+- Bugfix: The RBAC for AES now grants permission to "patch" Events.v1.core.  Previously it granted "create" but not "patch".
 
 ## v6.5.8
 
@@ -420,7 +343,7 @@ If you would like to use the default `PodSecurityPolicy`, make sure to unset `se
 - Add option to install ambassador-injector, alongside Service Preview.
 - Add additional security policy configurations.
 
-  `securityContext` has been deprecated in favor of `security` which allows you to set container and pod security contexts as well as a default `PodSecurityPolicy`.
+   `securityContext` has been deprecated in favor of `security` which allows you to set container and pod security contexts as well as a default `PodSecurityPolicy`.
 
 ## v6.3.6
 
