@@ -29,6 +29,6 @@ entries:
     - https://github.com/datawire/ambassador
     - https://github.com/prometheus/statsd_exporter
     urls:
-    - https://robd003.github.io/emissary-ingress-arm64/charts/emissary-ingress-8.5.2.tgz
+    - https://robd003.github.io/emissary-ingress-arm64/charts/emissary-ingress-8.5.2.tar.gz
     version: 8.5.2
 generated: "2023-04-15T20:50:29.736215008Z"
